@@ -18,6 +18,9 @@ csv()
         ExtraRunPerTeam2016 = require("./ipl/ExtraRunPerTeam2016");
         let ExtraRunPerTeam2016Array = ExtraRunPerTeam2016(Matches, Deliveries);
 
+        TenEconomicalBowler2015 = require("./ipl/TenEconomicalBowler2015");
+        let TenEconomicalBowler2015Array = TenEconomicalBowler2015(Matches, Deliveries);
+
         //Dumping values of first function in json file for visualization
         const fs = require("fs");
         let ResultinJson = JSON.stringify(TotalMatchesYearwiseArray);
@@ -30,6 +33,9 @@ csv()
 
         ResultinJson = JSON.stringify(ExtraRunPerTeam2016Array);
         fs.writeFileSync("./public/data2.json", ResultinJson, fallback);
+
+        ResultinJson = JSON.stringify(TenEconomicalBowler2015Array);
+        fs.writeFileSync("./public/data3.json", ResultinJson, fallback);
 
         /*total matches in year ends */
 

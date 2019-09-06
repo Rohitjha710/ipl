@@ -20,6 +20,13 @@ function fetchAndVisualizeData2() {
       visualizeData2(data);
        })
 }
+function fetchAndVisualizeData3() {
+  fetch('./data3.json')
+  .then(r => r.json())
+  .then(data => {
+      visualizeData3(data);
+       })
+}
 
 function visualizeData(data) {
     Highcharts.chart("container", {
@@ -213,6 +220,52 @@ function visualizeData2(data) {
   });
 }
 
+function visualizeData3(data) {
+  Highcharts.chart("container3", {
+    chart: {
+      type: "column"
+    },
+    title: {
+      text: "Top Ten Most economical bowler 2015"
+    },
+    subtitle: {
+      text: "Source: Csv data released by IPL"
+    },
+    xAxis: {
+      categories: /*data.categories*/Object.keys(data),
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: "Economy"
+      }
+    },/*
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat:
+        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: "</table>",
+      shared: true,
+      useHTML: true
+    },*/
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [
+      {
+          "name": "Economy",
+          "data": Object.values(data)
+      }
+      
+  ]
+  });
+}
 fetchAndVisualizeData();
 fetchAndVisualizeData1();
 fetchAndVisualizeData2();
+fetchAndVisualizeData3();
