@@ -28,6 +28,9 @@ csv()
         ResultinJson = JSON.stringify(MatchesWonPerTeamPerYearArray);
         fs.writeFileSync("./public/data1.json", ResultinJson, fallback);
 
+        ResultinJson = JSON.stringify(ExtraRunPerTeam2016Array);
+        fs.writeFileSync("./public/data2.json", ResultinJson, fallback);
+
         /*total matches in year ends */
 
         /*Deliveries object scope ends */

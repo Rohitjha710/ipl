@@ -13,7 +13,13 @@ function fetchAndVisualizeData1() {
       visualizeData1(data);
        })
 }
-
+function fetchAndVisualizeData2() {
+  fetch('./data2.json')
+  .then(r => r.json())
+  .then(data => {
+      visualizeData2(data);
+       })
+}
 
 function visualizeData(data) {
     Highcharts.chart("container", {
@@ -161,6 +167,52 @@ function visualizeData1(data) {
     // }]
 });
 }
+function visualizeData2(data) {
+  Highcharts.chart("container2", {
+    chart: {
+      type: "column"
+    },
+    title: {
+      text: "Extra runs conceded by Teams in 2016"
+    },
+    subtitle: {
+      text: "Source: Csv data released by IPL"
+    },
+    xAxis: {
+      categories: /*data.categories*/Object.keys(data),
+      crosshair: true
+    },
+    yAxis: {
+      min: 0,
+      title: {
+        text: "Runs"
+      }
+    },/*
+    tooltip: {
+      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+      pointFormat:
+        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+      footerFormat: "</table>",
+      shared: true,
+      useHTML: true
+    },*/
+    plotOptions: {
+      column: {
+        pointPadding: 0.2,
+        borderWidth: 0
+      }
+    },
+    series: [
+      {
+          "name": "Extra runs conceded",
+          "data": Object.values(data)
+      }
+      
+  ]
+  });
+}
 
 fetchAndVisualizeData();
 fetchAndVisualizeData1();
+fetchAndVisualizeData2();
