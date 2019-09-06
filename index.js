@@ -15,6 +15,8 @@ let TotalMatchesYearwiseArray=TotalMatchesYearwise(Matches);
 MatchesWonPerTeamPerYear=require('./ipl/MatchesWonPerTeamYearwise');
 let MatchesWonPerTeamPerYearArray=MatchesWonPerTeamPerYear(Matches);
 
+ExtraRunPerTeam2016=require('./ipl/ExtraRunPerTeam2016');
+let ExtraRunPerTeam2016Array=ExtraRunPerTeam2016(Matches,Deliveries);
       
 
     //Dumping values of first function in json file for visualization
