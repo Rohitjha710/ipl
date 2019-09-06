@@ -4,7 +4,8 @@ function ExtraRunPerTeam2016(match,deliveries)
     var Matches_2016=match.filter(a=>a["season"]==2016);
     var MatchId_2016=Matches_2016.map(x=>x["id"]);
     var count=0;
-    let reduce=require('./utils');
+    let utilsfile=require('./utils');
+      let reduce=utilsfile.Reduce;
     ExtraRunsObject=reduce(deliveries,((Matchdetail,delivery)=>{
 
              if(MatchId_2016.includes(delivery["match_id"]))

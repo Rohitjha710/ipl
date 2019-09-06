@@ -1,7 +1,8 @@
 function MatchesWonPerTeamPerYear(Matches)
 {
     let Result={};
-    let reduce=require('./utils');
+    let utilsfile=require('./utils');
+      let reduce=utilsfile.Reduce;
     Result=reduce(Matches,((MatchDetail,match)=>{
             let season=match["season"];
         var winner=match["winner"];
@@ -24,6 +25,7 @@ function MatchesWonPerTeamPerYear(Matches)
         return MatchDetail; 
     }),Result)
    
+
          console.log(Result);
          return Result;
 }

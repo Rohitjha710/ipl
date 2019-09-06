@@ -5,4 +5,4 @@ function reduce(arr, implementer, initialValue)
      accumulator = implementer(accumulator, arr[i]);
       return accumulator;
  }
- module.exports=reduce;
+ module.exports={Reduce:reduce};
