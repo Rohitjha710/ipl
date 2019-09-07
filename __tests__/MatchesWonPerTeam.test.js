@@ -38,15 +38,19 @@ const functions = require("../ipl/MatchesWonPerTeamYearwise");
 
 // });
 // const functions=require('../ipl/TotalMatchesPerYear');
-test("Check for ten matches of 2017", () => {
-  expect(functions(FiveMatchesOf2017)).toStrictEqual(Output2017FiveMatches);
-});
+describe("Matches Won Per Team", () => {
 
-test("Check for ten matches of different seasons", () => {
-  expect(functions(FiveDistributedMatches)).toStrictEqual(
-    OutputFiveDistributedMatches
-  );
-});
-test("Check for empty input", () => {
-  expect(functions(input3)).toStrictEqual(output3);
-});
+  it("Check for ten matches of 2017", () => {
+    expect(functions(FiveMatchesOf2017)).toStrictEqual(Output2017FiveMatches);
+  });
+  
+  it("Check for ten matches of different seasons", () => {
+    expect(functions(FiveDistributedMatches)).toStrictEqual(
+      OutputFiveDistributedMatches
+    );
+  });
+  it("Check for empty input", () => {
+    expect(functions(input3)).toStrictEqual(output3);
+  });
+  
+})

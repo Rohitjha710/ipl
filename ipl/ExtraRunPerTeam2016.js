@@ -4,10 +4,10 @@ function ExtraRunPerTeam2016(match,deliveries)
       let reduce=utilsfile.Reduce;
       let map=utilsfile.Map;
       let filter=utilsfile.Filter;
-    var ExtraRunsObject={};
-    var Matches_2016=filter(match,a=>a["season"]==2016);
-    var MatchId_2016=map(Matches_2016,x=>x["id"]);
-    var count=0;
+    let ExtraRunsObject={};
+    let Matches_2016=filter(match,a=>a["season"]==2016);
+    let MatchId_2016=map(Matches_2016,x=>x["id"]);
+    let count=0;
     
     ExtraRunsObject=reduce(deliveries,((Matchdetail,delivery)=>{
 
