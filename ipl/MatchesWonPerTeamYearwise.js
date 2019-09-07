@@ -6,6 +6,10 @@ function MatchesWonPerTeamPerYear(Matches)
     Result=reduce(Matches,((MatchDetail,match)=>{
             let season=match["season"];
         var winner=match["winner"];
+        if(winner==="")
+        {
+            return MatchDetail;
+        }
 
         if(MatchDetail.hasOwnProperty(season))
         {
