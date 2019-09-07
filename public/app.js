@@ -3,7 +3,7 @@ function fetchAndVisualizeData() {
     .then(r => r.json())
     .then(data => {
         visualizeData(data);
-        visualizeData1(data);
+        
          })
 }
 function fetchAndVisualizeData1() {
