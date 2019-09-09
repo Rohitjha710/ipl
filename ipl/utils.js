@@ -23,4 +23,4 @@ function filter(Array, filterFunc) {
 
   return mapresult;
 }
-module.exports = { Reduce: reduce, Map: map,Filter:filter };
+module.exports = { Reduce: reduce, Map: map, Filter: filter };
