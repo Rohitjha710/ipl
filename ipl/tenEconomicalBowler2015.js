@@ -10,25 +10,25 @@ function tenEconomicalBowler2015(match, deliveries) {
 
   economyOfBowler = reduce(
     deliveries,
-    (matchdetail, match) => {
-      if (matchId2015.includes(match["match_id"])) {
-        if (matchdetail.hasOwnProperty(match["bowler"])) {
-          if (match["wide_runs"] != 0 || match["noball_runs"] != 0) {
+    (matchdetail, delivery) => {
+      if (matchId2015.includes(delivery["match_id"])) {
+        if (matchdetail.hasOwnProperty(delivery["bowler"])) {
+          if (delivery["wide_runs"] != 0 || delivery["noball_runs"] != 0) {
           } else {
-            matchdetail[match["bowler"]]["balls"]++;
+            matchdetail[delivery["bowler"]]["balls"]++;
           }
-          matchdetail[match["bowler"]]["run"] =
-            parseInt(matchdetail[match["bowler"]]["run"]) +
-            parseInt(match["noball_runs"]) +
-            parseInt(match["wide_runs"]) +
-            parseInt(match["batsman_runs"]);
+          matchdetail[delivery["bowler"]]["run"] =
+            parseInt(matchdetail[delivery["bowler"]]["run"]) +
+            parseInt(delivery["noball_runs"]) +
+            parseInt(delivery["wide_runs"]) +
+            parseInt(delivery["batsman_runs"]);
           
         } else {
-          matchdetail[match["bowler"]] = {
+          matchdetail[delivery["bowler"]] = {
             run:
-              /*match["total_runs"]*/ parseInt(match["noball_runs"]) +
-              parseInt(match["wide_runs"]) +
-              parseInt(match["batsman_runs"]),
+              /*match["total_runs"]*/ parseInt(delivery["noball_runs"]) +
+              parseInt(delivery["wide_runs"]) +
+              parseInt(delivery["batsman_runs"]),
             balls: 1
           };
         }
