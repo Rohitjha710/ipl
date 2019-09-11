@@ -7,7 +7,9 @@ function totalMatchesYearwise(Matches) {
     Matches,
     (matchDetail, match) => {
       let season = match["season"];
-      if (matchDetail.hasOwnProperty(season)) {
+    
+      if (season in matchDetail)
+      {
         matchDetail[season]++;
       } else {
         matchDetail[season] = 1;
@@ -18,7 +20,7 @@ function totalMatchesYearwise(Matches) {
     result
   );
 
-  
+
   return result;
 }
 module.exports = totalMatchesYearwise;

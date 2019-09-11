@@ -12,7 +12,7 @@ function extraRunPerTeam2016(matches, deliveries) {
     deliveries,
     (matchdetail, delivery) => {
       if (matchId2016.includes(delivery["match_id"])) {
-        if (matchdetail.hasOwnProperty(delivery["bowling_team"])) {
+        if (delivery["bowling_team"] in matchdetail) {
           matchdetail[delivery["bowling_team"]] =
             parseInt(matchdetail[delivery["bowling_team"]]) +
             parseInt(delivery["extra_runs"]);

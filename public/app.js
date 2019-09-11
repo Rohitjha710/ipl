@@ -56,7 +56,7 @@ function visualizeData1(data) {
     count++;
         for (let eachteam in data[eachyear]) {
     
-      if (teamobj.hasOwnProperty(eachteam)) {
+      if (eachteam in teamobj) {
         teamobj[eachteam].push(data[eachyear][eachteam]);
       } else {
         teamobj[eachteam] = [];

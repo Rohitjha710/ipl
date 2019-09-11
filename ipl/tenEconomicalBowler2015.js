@@ -12,7 +12,7 @@ function tenEconomicalBowler2015(match, deliveries) {
     deliveries,
     (matchdetail, delivery) => {
       if (matchId2015.includes(delivery["match_id"])) {
-        if (matchdetail.hasOwnProperty(delivery["bowler"])) {
+        if (delivery["bowler"] in matchdetail) {
           if (delivery["wide_runs"] != 0 || delivery["noball_runs"] != 0) {
           } else {
             matchdetail[delivery["bowler"]]["balls"]++;

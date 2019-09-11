@@ -12,8 +12,8 @@ function matchesWonPerTeamPerYear(Matches) {
         return matchDetail;
       }
 
-      if (matchDetail.hasOwnProperty(season)) {
-        if (matchDetail[season].hasOwnProperty(winner)) {
+      if ( season in matchDetail) {
+        if (winner in matchDetail[season]) {
           matchDetail[season][winner]++;
         } else {
           matchDetail[season][winner] = 1;
