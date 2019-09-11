@@ -1,8 +1,9 @@
-function tenEconomicalBowler2015(match, deliveries) {
-  let utilsfile = require("./utils");
+let utilsfile = require("./utils");
   let reduce = utilsfile.Reduce;
   let map = utilsfile.Map;
   let filter = utilsfile.Filter;
+function tenEconomicalBowler2015(match, deliveries) {
+  
   let economyOfBowler = {};
   let matches2015 = filter(match, a => a["season"] == 2015);
   let matchId2015 = map(matches2015, x => x["id"]);
