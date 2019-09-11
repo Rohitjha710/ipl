@@ -1,9 +1,8 @@
 let utilsfile = require("./utils");
-  let reduce = utilsfile.Reduce;
-  let map = utilsfile.Map;
-  let filter = utilsfile.Filter;
+let reduce = utilsfile.Reduce;
+let map = utilsfile.Map;
+let filter = utilsfile.Filter;
 function tenEconomicalBowler2015(match, deliveries) {
-  
   let economyOfBowler = {};
   let matches2015 = filter(match, a => a["season"] == 2015);
   let matchId2015 = map(matches2015, x => x["id"]);
@@ -22,11 +21,10 @@ function tenEconomicalBowler2015(match, deliveries) {
             parseInt(delivery["noball_runs"]) +
             parseInt(delivery["wide_runs"]) +
             parseInt(delivery["batsman_runs"]);
-          
         } else {
           matchdetail[delivery["bowler"]] = {
             run:
-               parseInt(delivery["noball_runs"]) +
+              parseInt(delivery["noball_runs"]) +
               parseInt(delivery["wide_runs"]) +
               parseInt(delivery["batsman_runs"]),
             balls: 1
@@ -43,7 +41,7 @@ function tenEconomicalBowler2015(match, deliveries) {
     economyOfBowler[bowler]["economy"] =
       (6 * parseInt(economyOfBowler[bowler]["run"])) /
       parseInt(economyOfBowler[bowler]["balls"]);
-    
+
     bowlerEconomy.push([bowler, economyOfBowler[bowler]["economy"]]);
   }
   bowlerEconomy.sort(function(a, b) {
@@ -55,7 +53,7 @@ function tenEconomicalBowler2015(match, deliveries) {
     economyResult[topTenLeastEconomyBowler2015[a][0]] =
       topTenLeastEconomyBowler2015[a][1];
   }
-  
+
   return economyResult;
 }
 module.exports = tenEconomicalBowler2015;

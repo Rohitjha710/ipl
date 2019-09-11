@@ -1,9 +1,8 @@
 let utilsfile = require("./utils");
-  let reduce = utilsfile.Reduce;
-  let map = utilsfile.Map;
-  let filter = utilsfile.Filter;
+let reduce = utilsfile.Reduce;
+let map = utilsfile.Map;
+let filter = utilsfile.Filter;
 function extraRunPerTeam2016(matches, deliveries) {
-  
   let extraRunsObject = {};
   let matches2016 = filter(matches, match => match["season"] == 2016);
   let matchId2016 = map(matches2016, match => match["id"]);
@@ -24,7 +23,6 @@ function extraRunPerTeam2016(matches, deliveries) {
     },
     extraRunsObject
   );
- 
 
   return extraRunsObject;
 }

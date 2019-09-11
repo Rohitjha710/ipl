@@ -1,8 +1,8 @@
 let utilsfile = require("./utils");
-  let reduce = utilsfile.Reduce;
+let reduce = utilsfile.Reduce;
 function matchesWonPerTeamPerYear(Matches) {
   let result = {};
-  
+
   result = reduce(
     Matches,
     (matchDetail, match) => {
@@ -12,7 +12,7 @@ function matchesWonPerTeamPerYear(Matches) {
         return matchDetail;
       }
 
-      if ( season in matchDetail) {
+      if (season in matchDetail) {
         if (winner in matchDetail[season]) {
           matchDetail[season][winner]++;
         } else {
@@ -27,7 +27,6 @@ function matchesWonPerTeamPerYear(Matches) {
     result
   );
 
-  
   return result;
 }
 module.exports = matchesWonPerTeamPerYear;

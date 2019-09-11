@@ -26,7 +26,7 @@ function visualizeData(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories:  Object.keys(data),
+      categories: Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -34,7 +34,7 @@ function visualizeData(data) {
       title: {
         text: "Matches"
       }
-    }, 
+    },
     plotOptions: {
       column: {
         pointPadding: 0.2,
@@ -54,8 +54,7 @@ function visualizeData1(data) {
   let count = 0;
   for (let eachyear in data) {
     count++;
-        for (let eachteam in data[eachyear]) {
-    
+    for (let eachteam in data[eachyear]) {
       if (eachteam in teamobj) {
         teamobj[eachteam].push(data[eachyear][eachteam]);
       } else {
@@ -95,14 +94,13 @@ function visualizeData1(data) {
         style: {
           fontWeight: "bold",
           color:
-    
             (Highcharts.defaultOptions.title.style &&
               Highcharts.defaultOptions.title.style.color) ||
             "gray"
         }
       }
     },
-    
+
     tooltip: {
       headerFormat: "<b>{point.x}</b><br/>",
       pointFormat: "{series.name}: {point.y}<br/>Total: {point.stackTotal}"
@@ -117,7 +115,6 @@ function visualizeData1(data) {
     },
 
     series: arr
-    
   });
 }
 function visualizeData2(data) {
@@ -132,7 +129,7 @@ function visualizeData2(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories:  Object.keys(data),
+      categories: Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -140,7 +137,7 @@ function visualizeData2(data) {
       title: {
         text: "Runs"
       }
-    } ,
+    },
     plotOptions: {
       column: {
         pointPadding: 0.2,
@@ -168,7 +165,7 @@ function visualizeData3(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories:  Object.keys(data),
+      categories: Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -176,7 +173,7 @@ function visualizeData3(data) {
       title: {
         text: "Economy"
       }
-    } ,
+    },
     plotOptions: {
       column: {
         pointPadding: 0.2,
