@@ -1,32 +1,32 @@
-function MatchesWonPerTeamPerYear(Matches) {
-  let Result = {};
+function matchesWonPerTeamPerYear(Matches) {
+  let result = {};
   let utilsfile = require("./utils");
   let reduce = utilsfile.Reduce;
-  Result = reduce(
+  result = reduce(
     Matches,
-    (MatchDetail, match) => {
+    (matchDetail, match) => {
       let season = match["season"];
       var winner = match["winner"];
       if (winner === "") {
-        return MatchDetail;
+        return matchDetail;
       }
 
-      if (MatchDetail.hasOwnProperty(season)) {
-        if (MatchDetail[season].hasOwnProperty(winner)) {
-          MatchDetail[season][winner]++;
+      if (matchDetail.hasOwnProperty(season)) {
+        if (matchDetail[season].hasOwnProperty(winner)) {
+          matchDetail[season][winner]++;
         } else {
-          MatchDetail[season][winner] = 1;
+          matchDetail[season][winner] = 1;
         }
       } else {
-        MatchDetail[season] = {};
-        MatchDetail[season][winner] = 1;
+        matchDetail[season] = {};
+        matchDetail[season][winner] = 1;
       }
-      return MatchDetail;
+      return matchDetail;
     },
-    Result
+    result
   );
 
-  console.log(Result);
-  return Result;
+  console.log(result);
+  return result;
 }
-module.exports = MatchesWonPerTeamPerYear;
+module.exports = matchesWonPerTeamPerYear;

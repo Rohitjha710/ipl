@@ -9,47 +9,44 @@ csv()
       .fromFile(csvFilePath1deliveries)
       .then(Deliveries => {
         /*Deliveries object scope begins */
-        TotalMatchesYearwise = require("./ipl/TotalMatchesPerYear");
-        let TotalMatchesYearwiseArray = TotalMatchesYearwise(Matches);
+        totalMatchesYearwise = require("./ipl/TotalMatchesPerYear");
+        let totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
 
-        MatchesWonPerTeamPerYear = require("./ipl/MatchesWonPerTeamYearwise");
-        let MatchesWonPerTeamPerYearArray = MatchesWonPerTeamPerYear(Matches);
+        matchesWonPerTeamPerYear = require("./ipl/MatchesWonPerTeamYearwise");
+        let matchesWonPerTeamPerYearArray = matchesWonPerTeamPerYear(Matches);
 
-        ExtraRunPerTeam2016 = require("./ipl/ExtraRunPerTeam2016");
-        let ExtraRunPerTeam2016Array = ExtraRunPerTeam2016(Matches, Deliveries);
+        extraRunPerTeam2016 = require("./ipl/ExtraRunPerTeam2016");
+        let extraRunPerTeam2016Array = extraRunPerTeam2016(Matches, Deliveries);
 
-        TenEconomicalBowler2015 = require("./ipl/TenEconomicalBowler2015");
-        let TenEconomicalBowler2015Array = TenEconomicalBowler2015(
+        tenEconomicalBowler2015 = require("./ipl/TenEconomicalBowler2015");
+        let tenEconomicalBowler2015Array = tenEconomicalBowler2015(
           Matches,
           Deliveries
         );
 
-        //Dumping values of first function in json file for visualization
-        var IplFinalJsonResult = [];
-        IplFinalJsonResult.push({
-          TotalMatchesYearwiseArray: TotalMatchesYearwiseArray
+        //Dumping values of  functions in json file for visualization
+        var iplFinalJsonResult = [];
+        iplFinalJsonResult.push({
+          totalMatchesYearwiseArray: totalMatchesYearwiseArray
         });
-        IplFinalJsonResult.push({
-          MatchesWonPerTeamPerYearArray: MatchesWonPerTeamPerYearArray
+        iplFinalJsonResult.push({
+          matchesWonPerTeamPerYearArray: matchesWonPerTeamPerYearArray
         });
-        IplFinalJsonResult.push({
-          ExtraRunPerTeam2016Array: ExtraRunPerTeam2016Array
+        iplFinalJsonResult.push({
+          extraRunPerTeam2016Array: extraRunPerTeam2016Array
         });
-        IplFinalJsonResult.push({
-          TenEconomicalBowler2015Array: TenEconomicalBowler2015Array
+        iplFinalJsonResult.push({
+          tenEconomicalBowler2015Array: tenEconomicalBowler2015Array
         });
         const fs = require("fs");
-        IplFinalJsonResult = JSON.stringify(IplFinalJsonResult);
+        iplFinalJsonResult = JSON.stringify(iplFinalJsonResult);
 
-        fs.writeFileSync("./public/data.json", IplFinalJsonResult, fallback);
+        fs.writeFileSync("./public/data.json", iplFinalJsonResult, fallback);
 
         function fallback(err) {
           console.log("Error");
         }
-        //test begins
-
-        //test ends
-        /*total matches in year ends */
+        
 
         /*Deliveries object scope ends */
       });

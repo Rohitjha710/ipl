@@ -5,22 +5,22 @@ function reduce(arr, implementer, initialValue) {
   return accumulator;
 }
 function map(arr, mapFunction) {
-  const Array = [];
+  const result = [];
   for (let i = 0; i < arr.length; i++) {
-    const result = mapFunction(arr[i]);
-    Array.push(result);
+    const mapResult = mapFunction(arr[i]);
+    result.push(mapResult);
   }
-  return Array;
+  return result;
 }
-function filter(Array, filterFunc) {
-  const mapresult = [];
-  for (let i = 0; i < Array.length; i++) {
-    const result = filterFunc(Array[i]);
-    if (result) {
-      mapresult.push(Array[i]);
+function filter(result, filterFunc) {
+  const filterResult = [];
+  for (let i = 0; i < result.length; i++) {
+    const check = filterFunc(result[i]);
+    if (check) {
+      filterResult.push(result[i]);
     }
   }
 
-  return mapresult;
+  return filterResult;
 }
 module.exports = { Reduce: reduce, Map: map, Filter: filter };

@@ -1,23 +1,23 @@
-function TotalMatchesYearwise(Matches) {
-  let Result = {};
+function totalMatchesYearwise(Matches) {
+  let result = {};
   let utilsfile = require("./utils");
   let reduce = utilsfile.Reduce;
-  Result = reduce(
+  result = reduce(
     Matches,
-    (MatchDetail, match) => {
+    (matchDetail, match) => {
       let season = match["season"];
-      if (MatchDetail.hasOwnProperty(season)) {
-        MatchDetail[season]++;
+      if (matchDetail.hasOwnProperty(season)) {
+        matchDetail[season]++;
       } else {
-        MatchDetail[season] = 1;
+        matchDetail[season] = 1;
       }
 
-      return MatchDetail;
+      return matchDetail;
     },
-    Result
+    result
   );
 
-  console.log(Result);
-  return Result;
+  console.log(result);
+  return result;
 }
-module.exports = TotalMatchesYearwise;
+module.exports = totalMatchesYearwise;

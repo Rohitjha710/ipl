@@ -2,20 +2,20 @@ function fetchAndVisualizeData() {
   fetch("./data.json")
     .then(r => r.json())
     .then(data => {
-      TotalMatchesYearwiseArray = data[0]["TotalMatchesYearwiseArray"];
-      MatchesWonPerTeamPerYearArray = data[1]["MatchesWonPerTeamPerYearArray"];
-      ExtraRunPerTeam2016Array = data[2]["ExtraRunPerTeam2016Array"];
-      TenEconomicalBowler2015Array = data[3]["TenEconomicalBowler2015Array"];
+      totalMatchesYearwiseArray = data[0]["totalMatchesYearwiseArray"];
+      matchesWonPerTeamPerYearArray = data[1]["matchesWonPerTeamPerYearArray"];
+      extraRunPerTeam2016Array = data[2]["extraRunPerTeam2016Array"];
+      tenEconomicalBowler2015Array = data[3]["tenEconomicalBowler2015Array"];
 
-      visualizeData(TotalMatchesYearwiseArray);
-      visualizeData1(MatchesWonPerTeamPerYearArray);
-      visualizeData2(ExtraRunPerTeam2016Array);
-      visualizeData3(TenEconomicalBowler2015Array);
+      visualizeData(totalMatchesYearwiseArray);
+      visualizeData1(matchesWonPerTeamPerYearArray);
+      visualizeData2(extraRunPerTeam2016Array);
+      visualizeData3(tenEconomicalBowler2015Array);
     });
 }
 
 function visualizeData(data) {
-  Highcharts.chart("TotalMatchesYearwise", {
+  Highcharts.chart("totalMatchesYearwise", {
     chart: {
       type: "column"
     },
@@ -85,7 +85,7 @@ function visualizeData1(data) {
     x["data"] = teamobj[each];
     arr.push(x);
   }
-  Highcharts.chart("MatchesWonPerTeamPerYear", {
+  Highcharts.chart("matchesWonPerTeamPerYear", {
     chart: {
       type: "column"
     },
@@ -151,7 +151,7 @@ function visualizeData1(data) {
   });
 }
 function visualizeData2(data) {
-  Highcharts.chart("ExtraRunPerTeam2016", {
+  Highcharts.chart("extraRunPerTeam2016", {
     chart: {
       type: "column"
     },
@@ -196,7 +196,7 @@ function visualizeData2(data) {
 }
 
 function visualizeData3(data) {
-  Highcharts.chart("TenEconomicalBowler2015", {
+  Highcharts.chart("tenEconomicalBowler2015", {
     chart: {
       type: "column"
     },

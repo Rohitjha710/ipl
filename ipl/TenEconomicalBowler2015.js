@@ -1,90 +1,60 @@
-function TenEconomicalBowler2015(match, deliveries) {
+function tenEconomicalBowler2015(match, deliveries) {
   let utilsfile = require("./utils");
   let reduce = utilsfile.Reduce;
   let map = utilsfile.Map;
   let filter = utilsfile.Filter;
-  let EconomyOfBowler = {};
-  let Matches_2015 = filter(match, a => a["season"] == 2015);
-  let MatchId_2015 = map(Matches_2015, x => x["id"]);
+  let economyOfBowler = {};
+  let matches2015 = filter(match, a => a["season"] == 2015);
+  let matchId2015 = map(matches2015, x => x["id"]);
 
-  // let count = 0;
-  EconomyOfBowler = reduce(
+  economyOfBowler = reduce(
     deliveries,
-    (Matchdetail, match) => {
-      if (MatchId_2015.includes(match["match_id"])) {
-        if (Matchdetail.hasOwnProperty(match["bowler"])) {
+    (matchdetail, match) => {
+      if (matchId2015.includes(match["match_id"])) {
+        if (matchdetail.hasOwnProperty(match["bowler"])) {
           if (match["wide_runs"] != 0 || match["noball_runs"] != 0) {
           } else {
-            Matchdetail[match["bowler"]]["Balls"]++;
+            matchdetail[match["bowler"]]["balls"]++;
           }
-          Matchdetail[match["bowler"]]["Run"] =
-            parseInt(Matchdetail[match["bowler"]]["Run"]) +
+          matchdetail[match["bowler"]]["run"] =
+            parseInt(matchdetail[match["bowler"]]["run"]) +
             parseInt(match["noball_runs"]) +
             parseInt(match["wide_runs"]) +
             parseInt(match["batsman_runs"]);
-          /* ExtraRunsObject[deliveries[delivery]["bowling_team"]]=parseInt(ExtraRunsObject[deliveries[delivery]["bowling_team"]])+parseInt(deliveries[delivery]["extra_runs"]);
-           */
+          
         } else {
-          Matchdetail[match["bowler"]] = {
-            Run:
+          matchdetail[match["bowler"]] = {
+            run:
               /*match["total_runs"]*/ parseInt(match["noball_runs"]) +
               parseInt(match["wide_runs"]) +
               parseInt(match["batsman_runs"]),
-            Balls: 1
+            balls: 1
           };
         }
       }
-      return Matchdetail;
+      return matchdetail;
     },
-    EconomyOfBowler
+    economyOfBowler
   );
 
-  /*begins*/
-  //   for (let delivery in deliveries) {
-  //     if (MatchId_2015.includes(deliveries[delivery]["match_id"])) {
-  //       if (EconomyOfBowler.hasOwnProperty(deliveries[delivery]["bowler"])) {
-  //         if (
-  //           deliveries[delivery]["wide_runs"] != 0 ||
-  //           deliveries[delivery]["noball_runs"] != 0
-  //         ) {
-  //         } else {
-  //           EconomyOfBowler[deliveries[delivery]["bowler"]]["Balls"]++;
-  //         }
-  //         EconomyOfBowler[deliveries[delivery]["bowler"]]["Run"] =
-  //           parseInt(EconomyOfBowler[deliveries[delivery]["bowler"]]["Run"]) +
-  //           parseInt(deliveries[delivery]["noball_runs"]) +
-  //           parseInt(deliveries[delivery]["wide_runs"]) +
-  //           parseInt(deliveries[delivery]["batsman_runs"]);
-  //         /* ExtraRunsObject[deliveries[delivery]["bowling_team"]]=parseInt(ExtraRunsObject[deliveries[delivery]["bowling_team"]])+parseInt(deliveries[delivery]["extra_runs"]);
-  //          */
-  //       } else {
-  //         EconomyOfBowler[deliveries[delivery]["bowler"]] = {
-  //           Run: deliveries[delivery]["total_runs"],
-  //           Balls: 1
-  //         };
-  //       }
-  //     }
-  //   }
-  /*ends */
-  let bowler_economy = [];
-  for (let bowler in EconomyOfBowler) {
-    EconomyOfBowler[bowler]["economy"] =
-      (6 * parseInt(EconomyOfBowler[bowler]["Run"])) /
-      parseInt(EconomyOfBowler[bowler]["Balls"]);
-    // delete EconomyOfBowler[bowler]["Run"];
-    // delete EconomyOfBowler[bowler]["Balls"];
-    bowler_economy.push([bowler, EconomyOfBowler[bowler]["economy"]]);
+  let bowlerEconomy = [];
+  for (let bowler in economyOfBowler) {
+    economyOfBowler[bowler]["economy"] =
+      (6 * parseInt(economyOfBowler[bowler]["run"])) /
+      parseInt(economyOfBowler[bowler]["balls"]);
+    
+    bowlerEconomy.push([bowler, economyOfBowler[bowler]["economy"]]);
   }
-  bowler_economy.sort(function(a, b) {
+  bowlerEconomy.sort(function(a, b) {
     return a[1] - b[1];
   });
-  TopTenLeastEconomyBowler2015 = bowler_economy.slice(0, 10);
-  let economyresult = {};
-  for (let a in TopTenLeastEconomyBowler2015) {
-    economyresult[TopTenLeastEconomyBowler2015[a][0]] =
-      TopTenLeastEconomyBowler2015[a][1];
+  topTenLeastEconomyBowler2015 = bowlerEconomy.slice(0, 10);
+  let economyResult = {};
+  for (let a in topTenLeastEconomyBowler2015) {
+    economyResult[topTenLeastEconomyBowler2015[a][0]] =
+      topTenLeastEconomyBowler2015[a][1];
   }
-  console.log(economyresult);
-  return economyresult;
+  console.log(economyResult);
+  return economyResult;
 }
-module.exports = TenEconomicalBowler2015;
+module.exports = tenEconomicalBowler2015;

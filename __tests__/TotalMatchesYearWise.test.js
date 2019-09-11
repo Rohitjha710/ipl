@@ -1,4 +1,4 @@
-let TenMatchesOf2017 = [
+let tenMatchesOf2017 = [
   { id: "1", season: "2017" },
   { id: "2", season: "2017" },
   { id: "3", season: "2017" },
@@ -10,11 +10,11 @@ let TenMatchesOf2017 = [
   { id: "9", season: "2017" },
   { id: "10", season: "2017" }
 ];
-let Output2017TenMatches = {
+let output2017TenMatches = {
   "2017": 10
 };
 
-let TenDistributedMatches = [
+let tenDistributedMatches = [
   { id: "1", season: "2017" },
   { id: "2", season: "2017" },
   { id: "3", season: "2016" },
@@ -27,7 +27,7 @@ let TenDistributedMatches = [
   { id: "10", season: "2011" }
 ];
 
-let OutputTenDistributedMatches = {
+let outputTenDistributedMatches = {
   "2017": 2,
   "2017": 2,
   "2015": 2,
@@ -43,11 +43,11 @@ let output3 = {};
 const functions = require("../ipl/TotalMatchesPerYear");
 describe("TotalmatchesYearwise", () => {
   it("Check for Ten matches of 2017", () => {
-    expect(functions(TenMatchesOf2017)).toStrictEqual(Output2017TenMatches);
+    expect(functions(tenMatchesOf2017)).toStrictEqual(output2017TenMatches);
   });
   it("Check for Ten matches of 2017", () => {
-    expect(functions(TenDistributedMatches)).toStrictEqual(
-      OutputTenDistributedMatches
+    expect(functions(tenDistributedMatches)).toStrictEqual(
+      outputTenDistributedMatches
     );
   });
   it("Check for empty input", () => {

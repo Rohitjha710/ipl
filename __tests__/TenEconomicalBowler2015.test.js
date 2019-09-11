@@ -1,4 +1,4 @@
-let TenMatches = [
+let tenMatches = [
   { season: 2015, id: 10 },
   { season: 2015, id: 9 },
   { season: 2015, id: 8 },
@@ -11,7 +11,7 @@ let TenMatches = [
   { season: 2015, id: 5 }
 ];
 
-let TenDeliveries = [
+let tenDeliveries = [
   { match_id: 6, bowler: "R", wide_runs: 0, noball_runs: 0, batsman_runs: 1 },
   { match_id: 7, bowler: "S", wide_runs: 0, noball_runs: 0, batsman_runs: 1 },
   { match_id: 8, bowler: "T", wide_runs: 0, noball_runs: 0, batsman_runs: 2 },
@@ -23,7 +23,7 @@ let TenDeliveries = [
   { match_id: 4, bowler: "Z", wide_runs: 0, noball_runs: 0, batsman_runs: 2 },
   { match_id: 5, bowler: "A", wide_runs: 0, noball_runs: 0, batsman_runs: 3 }
 ];
-let TenDeliveriesOutput = {
+let tenDeliveriesOutput = {
   R: 6,
   S: 6,
   T: 12,
@@ -35,7 +35,7 @@ let TenDeliveriesOutput = {
   Z: 12,
   A: 18
 };
-let DistributedDeliveryOutput = {
+let distributedDeliveryOutput = {
   R: 18,
   T: 12,
   W: 6,
@@ -44,7 +44,7 @@ let DistributedDeliveryOutput = {
   Z: 12,
   A: 18
 };
-let DistributedMatch = [
+let distributedMatch = [
   { season: 2016, id: 10 },
   { season: 2015, id: 9 },
   { season: 2015, id: 8 },
@@ -56,7 +56,7 @@ let DistributedMatch = [
   { season: 2015, id: 4 },
   { season: 2015, id: 5 }
 ];
-let DistributedDelivery = [
+let distributedDelivery = [
   { match_id: 6, bowler: "R", wide_runs: 0, noball_runs: 0, batsman_runs: 1 },
   { match_id: 7, bowler: "R", wide_runs: 1, noball_runs: 0, batsman_runs: 1 },
   { match_id: 8, bowler: "T", wide_runs: 0, noball_runs: 0, batsman_runs: 2 },
@@ -69,23 +69,23 @@ let DistributedDelivery = [
   { match_id: 5, bowler: "A", wide_runs: 0, noball_runs: 0, batsman_runs: 3 }
 ];
 
-let EmptyInput = {};
-let EmptyOutput = {};
+let emptyInput = {};
+let emptyOutput = {};
 
 const functions = require("../ipl/TenEconomicalBowler2015");
 describe("Extra Runs conceded per team", () => {
   test("Check for five matches", () => {
-    expect(functions(TenMatches, TenDeliveries)).toStrictEqual(
-      TenDeliveriesOutput
+    expect(functions(tenMatches, tenDeliveries)).toStrictEqual(
+      tenDeliveriesOutput
     );
   });
   test("Check for five matches", () => {
-    expect(functions(DistributedMatch, DistributedDelivery)).toStrictEqual(
-      DistributedDeliveryOutput
+    expect(functions(distributedMatch, distributedDelivery)).toStrictEqual(
+      distributedDeliveryOutput
     );
   });
 
   it("Check for empty input", () => {
-    expect(functions({}, EmptyInput)).toStrictEqual(EmptyOutput);
+    expect(functions({}, emptyInput)).toStrictEqual(emptyOutput);
   });
 });

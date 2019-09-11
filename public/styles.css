@@ -1,15 +1,32 @@
 body {
   font-family: sans-serif;
+  background-color: aquamarine;
 }
 body h1 {
   text-align: center;
 }
-#container {
-  margin-top: 5rem;
+
+#totalMatchesYearwise
+{
+  min-width: 310px; 
+  height: 400px; 
+  margin: 50px auto
 }
-#container1 {
-  margin-top: 5rem;
+#matchesWonPerTeamPerYear
+{
+  min-width: 310px; 
+  height: 600px; 
+  margin: 50px auto
 }
-#container2 {
-  margin-top: 5rem;
+#extraRunPerTeam2016
+{
+  min-width: 310px; 
+  height: 400px; 
+  margin: 50px auto
+}
+#tenEconomicalBowler2015
+{
+  min-width: 310px; 
+  height: 400px; 
+  margin: 50px auto
 }
