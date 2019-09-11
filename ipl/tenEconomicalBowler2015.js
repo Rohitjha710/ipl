@@ -55,7 +55,7 @@ function tenEconomicalBowler2015(match, deliveries) {
     economyResult[topTenLeastEconomyBowler2015[a][0]] =
       topTenLeastEconomyBowler2015[a][1];
   }
-  console.log(economyResult);
+  
   return economyResult;
 }
 module.exports = tenEconomicalBowler2015;

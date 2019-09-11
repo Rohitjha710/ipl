@@ -18,7 +18,7 @@ function totalMatchesYearwise(Matches) {
     result
   );
 
-  console.log(result);
+  
   return result;
 }
 module.exports = totalMatchesYearwise;

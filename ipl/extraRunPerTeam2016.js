@@ -25,7 +25,7 @@ function extraRunPerTeam2016(matches, deliveries) {
     extraRunsObject
   );
  
-  console.log(extraRunsObject);
+
   return extraRunsObject;
 }
 module.exports = extraRunPerTeam2016;
