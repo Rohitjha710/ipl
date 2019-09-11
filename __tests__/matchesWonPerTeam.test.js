@@ -29,16 +29,6 @@ let input3 = {};
 let output3 = {};
 
 const functions = require("../ipl/matchesWonPerTeamYearwise");
-// describe("functions",()=>
-// it('Check for ten matches of 2017',()=>{
-// expect(functions(TenMatchesOf2017)).toStrictEqual(Output2017TenMatches);
-// });
-// it('Check for ten matches of different seasons',()=>{
-//   expect(functions(TenDistributedMatches)).toStrictEqual(OutputTenDistributedMatches);
-//   });
-
-// });
-// const functions=require('../ipl/TotalMatchesPerYear');
 describe("Matches Won Per Team", () => {
   it("Check for ten matches of 2017", () => {
     expect(functions(fiveMatchesOf2017)).toStrictEqual(output2017FiveMatches);

@@ -26,7 +26,7 @@ function visualizeData(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories: /*data.categories*/ Object.keys(data),
+      categories:  Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -34,16 +34,7 @@ function visualizeData(data) {
       title: {
         text: "Matches"
       }
-    } /*
-      tooltip: {
-        headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-        pointFormat:
-          '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-          '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-        footerFormat: "</table>",
-        shared: true,
-        useHTML: true
-      },*/,
+    }, 
     plotOptions: {
       column: {
         pointPadding: 0.2,
@@ -63,9 +54,8 @@ function visualizeData1(data) {
   let count = 0;
   for (let eachyear in data) {
     count++;
-    // console.log(data);
-    for (let eachteam in data[eachyear]) {
-      // console.log(eachteam)//team name;
+        for (let eachteam in data[eachyear]) {
+    
       if (teamobj.hasOwnProperty(eachteam)) {
         teamobj[eachteam].push(data[eachyear][eachteam]);
       } else {
@@ -105,25 +95,14 @@ function visualizeData1(data) {
         style: {
           fontWeight: "bold",
           color:
-            // theme
+    
             (Highcharts.defaultOptions.title.style &&
               Highcharts.defaultOptions.title.style.color) ||
             "gray"
         }
       }
     },
-    // legend: {
-    //     align: 'right',
-    //     x: -30,
-    //     verticalAlign: 'top',
-    //     y: 25,
-    //     floating: true,
-    //     backgroundColor:
-    //         Highcharts.defaultOptions.legend.backgroundColor || 'white',
-    //     borderColor: '#CCC',
-    //     borderWidth: 1,
-    //     shadow: false
-    // },
+    
     tooltip: {
       headerFormat: "<b>{point.x}</b><br/>",
       pointFormat: "{series.name}: {point.y}<br/>Total: {point.stackTotal}"
@@ -138,16 +117,7 @@ function visualizeData1(data) {
     },
 
     series: arr
-    //  series: [{
-    //     name: 'John',
-    //     data: [5, 3, 4, 7, 2]
-    // }, {
-    //     name: 'Jane',
-    //     data: [2, 2, 3, 2, 1]
-    // }, {
-    //     name: 'Joe',
-    //     data: [3, 4, 4, 2, 5]
-    // }]
+    
   });
 }
 function visualizeData2(data) {
@@ -162,7 +132,7 @@ function visualizeData2(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories: /*data.categories*/ Object.keys(data),
+      categories:  Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -170,16 +140,7 @@ function visualizeData2(data) {
       title: {
         text: "Runs"
       }
-    } /*
-    tooltip: {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat:
-        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-      footerFormat: "</table>",
-      shared: true,
-      useHTML: true
-    },*/,
+    } ,
     plotOptions: {
       column: {
         pointPadding: 0.2,
@@ -207,7 +168,7 @@ function visualizeData3(data) {
       text: "Source: Csv data released by IPL"
     },
     xAxis: {
-      categories: /*data.categories*/ Object.keys(data),
+      categories:  Object.keys(data),
       crosshair: true
     },
     yAxis: {
@@ -215,16 +176,7 @@ function visualizeData3(data) {
       title: {
         text: "Economy"
       }
-    } /*
-    tooltip: {
-      headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
-      pointFormat:
-        '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
-        '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
-      footerFormat: "</table>",
-      shared: true,
-      useHTML: true
-    },*/,
+    } ,
     plotOptions: {
       column: {
         pointPadding: 0.2,
@@ -240,6 +192,3 @@ function visualizeData3(data) {
   });
 }
 fetchAndVisualizeData();
-// fetchAndVisualizeData1();
-// fetchAndVisualizeData2();
-// fetchAndVisualizeData3();

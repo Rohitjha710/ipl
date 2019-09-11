@@ -26,7 +26,7 @@ function tenEconomicalBowler2015(match, deliveries) {
         } else {
           matchdetail[delivery["bowler"]] = {
             run:
-              /*match["total_runs"]*/ parseInt(delivery["noball_runs"]) +
+               parseInt(delivery["noball_runs"]) +
               parseInt(delivery["wide_runs"]) +
               parseInt(delivery["batsman_runs"]),
             balls: 1

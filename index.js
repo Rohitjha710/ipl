@@ -4,12 +4,11 @@ const csv = require("csvtojson");
 csv()
   .fromFile(csvFilePathmatches)
   .then(Matches => {
-    /*Matches object scope begins */
+    
     csv()
       .fromFile(csvFilePath1deliveries)
       .then(Deliveries => {
-        /*Deliveries object scope begins */
-        totalMatchesYearwise = require("./ipl/totalMatchesPerYear");
+            totalMatchesYearwise = require("./ipl/totalMatchesPerYear");
         let totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
 
         matchesWonPerTeamPerYear = require("./ipl/matchesWonPerTeamYearwise");
@@ -24,7 +23,7 @@ csv()
           Deliveries
         );
 
-        //Dumping values of  functions in json file for visualization
+     
         var iplFinalJsonResult = [];
         iplFinalJsonResult.push({
           totalMatchesYearwiseArray: totalMatchesYearwiseArray
@@ -48,7 +47,7 @@ csv()
         }
         
 
-        /*Deliveries object scope ends */
+     
       });
-    /* Matches object scope ends*/
+    
   });
