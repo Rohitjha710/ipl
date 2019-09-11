@@ -28,7 +28,7 @@ let outputFiveDistributedMatches = {
 let input3 = {};
 let output3 = {};
 
-const functions = require("../ipl/MatchesWonPerTeamYearwise");
+const functions = require("../ipl/matchesWonPerTeamYearwise");
 // describe("functions",()=>
 // it('Check for ten matches of 2017',()=>{
 // expect(functions(TenMatchesOf2017)).toStrictEqual(Output2017TenMatches);

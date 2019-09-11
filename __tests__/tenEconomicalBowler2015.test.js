@@ -72,7 +72,7 @@ let distributedDelivery = [
 let emptyInput = {};
 let emptyOutput = {};
 
-const functions = require("../ipl/TenEconomicalBowler2015");
+const functions = require("../ipl/tenEconomicalBowler2015");
 describe("Extra Runs conceded per team", () => {
   test("Check for five matches", () => {
     expect(functions(tenMatches, tenDeliveries)).toStrictEqual(

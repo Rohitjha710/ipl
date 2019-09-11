@@ -40,7 +40,7 @@ let outputTenDistributedMatches = {
 let input3 = {};
 let output3 = {};
 
-const functions = require("../ipl/TotalMatchesPerYear");
+const functions = require("../ipl/totalMatchesPerYear");
 describe("TotalmatchesYearwise", () => {
   it("Check for Ten matches of 2017", () => {
     expect(functions(tenMatchesOf2017)).toStrictEqual(output2017TenMatches);

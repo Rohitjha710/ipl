@@ -9,16 +9,16 @@ csv()
       .fromFile(csvFilePath1deliveries)
       .then(Deliveries => {
         /*Deliveries object scope begins */
-        totalMatchesYearwise = require("./ipl/TotalMatchesPerYear");
+        totalMatchesYearwise = require("./ipl/totalMatchesPerYear");
         let totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
 
-        matchesWonPerTeamPerYear = require("./ipl/MatchesWonPerTeamYearwise");
+        matchesWonPerTeamPerYear = require("./ipl/matchesWonPerTeamYearwise");
         let matchesWonPerTeamPerYearArray = matchesWonPerTeamPerYear(Matches);
 
-        extraRunPerTeam2016 = require("./ipl/ExtraRunPerTeam2016");
+        extraRunPerTeam2016 = require("./ipl/extraRunPerTeam2016");
         let extraRunPerTeam2016Array = extraRunPerTeam2016(Matches, Deliveries);
 
-        tenEconomicalBowler2015 = require("./ipl/TenEconomicalBowler2015");
+        tenEconomicalBowler2015 = require("./ipl/tenEconomicalBowler2015");
         let tenEconomicalBowler2015Array = tenEconomicalBowler2015(
           Matches,
           Deliveries

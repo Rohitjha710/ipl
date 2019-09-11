@@ -31,7 +31,7 @@ let distributedOutput = { csk: 4, rcb: 1 };
 let emptyInput = {};
 let emptyOutput = {};
 
-const functions = require("../ipl/ExtraRunPerTeam2016");
+const functions = require("../ipl/extraRunPerTeam2016");
 describe("Extra Runs conceded per team", () => {
   it("5 matches of 2016", () => {
     expect(functions(matchInputFiveMatch, fiveDeliveries)).toStrictEqual(
