@@ -1,47 +1,50 @@
-const csvFilePathmatches = "./dataset/matches.csv";
-const csvFilePath1deliveries = "./dataset/deliveries.csv";
-const csv = require("csvtojson");
+const csvFilePathmatches = './dataset/matches.csv';
+const csvFilePath1deliveries = './dataset/deliveries.csv';
+const csv = require('csvtojson');
+
 csv()
   .fromFile(csvFilePathmatches)
-  .then(Matches => {
+  .then((Matches) => {
     csv()
       .fromFile(csvFilePath1deliveries)
-      .then(Deliveries => {
-        totalMatchesYearwise = require("./ipl/totalMatchesPerYear");
-        let totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
+      .then((Deliveries) => {
+        // eslint-disable-next-line global-require
+        const totalMatchesYearwise = require('./ipl/totalMatchesPerYear');
+        const totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
 
-        matchesWonPerTeamPerYear = require("./ipl/matchesWonPerTeamYearwise");
-        let matchesWonPerTeamPerYearArray = matchesWonPerTeamPerYear(Matches);
+        // eslint-disable-next-line global-require
+        const matchesWonPerTeamPerYear = require('./ipl/matchesWonPerTeamYearwise');
+        const matchesWonPerTeamPerYearArray = matchesWonPerTeamPerYear(Matches);
 
-        extraRunPerTeam2016 = require("./ipl/extraRunPerTeam2016");
-        let extraRunPerTeam2016Array = extraRunPerTeam2016(Matches, Deliveries);
+        // eslint-disable-next-line global-require
+        const extraRunPerTeam2016 = require('./ipl/extraRunPerTeam2016');
+        const extraRunPerTeam2016Array = extraRunPerTeam2016(Matches, Deliveries);
 
-        tenEconomicalBowler2015 = require("./ipl/tenEconomicalBowler2015");
-        let tenEconomicalBowler2015Array = tenEconomicalBowler2015(
+        // eslint-disable-next-line global-require
+        const tenEconomicalBowler2015 = require('./ipl/tenEconomicalBowler2015');
+        const tenEconomicalBowler2015Array = tenEconomicalBowler2015(
           Matches,
-          Deliveries
+          Deliveries,
         );
 
-        var iplFinalJsonResult = [];
+        let iplFinalJsonResult = [];
         iplFinalJsonResult.push({
-          totalMatchesYearwiseArray: totalMatchesYearwiseArray
+          totalMatchesYearwiseArray,
         });
         iplFinalJsonResult.push({
-          matchesWonPerTeamPerYearArray: matchesWonPerTeamPerYearArray
+          matchesWonPerTeamPerYearArray,
         });
         iplFinalJsonResult.push({
-          extraRunPerTeam2016Array: extraRunPerTeam2016Array
+          extraRunPerTeam2016Array,
         });
         iplFinalJsonResult.push({
-          tenEconomicalBowler2015Array: tenEconomicalBowler2015Array
+          tenEconomicalBowler2015Array,
         });
-        const fs = require("fs");
+        // eslint-disable-next-line global-require
+        const fs = require('fs');
         iplFinalJsonResult = JSON.stringify(iplFinalJsonResult);
 
-        fs.writeFileSync("./public/data.json", iplFinalJsonResult, fallback);
-
-        function fallback(err) {
-          console.log("Error");
-        }
+        fs.writeFileSync('./public/data.json', iplFinalJsonResult, () => {
+        });
       });
   });

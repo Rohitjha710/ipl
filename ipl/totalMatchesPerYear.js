@@ -1,12 +1,16 @@
-let utilsfile = require("./utils");
-let reduce = utilsfile.Reduce;
+/* eslint-disable no-plusplus */
+/* eslint-disable no-param-reassign */
+/* eslint-disable prefer-destructuring */
+const utilsfile = require('./utils');
+
+const reduce = utilsfile.Reduce;
 function totalMatchesYearwise(Matches) {
   let result = {};
 
   result = reduce(
     Matches,
     (matchDetail, match) => {
-      let season = match["season"];
+      const season = match.season;
 
       if (season in matchDetail) {
         matchDetail[season]++;
@@ -16,7 +20,7 @@ function totalMatchesYearwise(Matches) {
 
       return matchDetail;
     },
-    result
+    result,
   );
 
   return result;
