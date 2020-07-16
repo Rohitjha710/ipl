@@ -25,7 +25,7 @@ function visualizeData(data) {
       type: 'column',
     },
     title: {
-      text: 'Total matches Played',
+      text: 'Total matches Played by sameer',
     },
     subtitle: {
       text: 'Source: Csv data released by IPL',

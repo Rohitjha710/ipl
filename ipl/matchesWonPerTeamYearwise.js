@@ -1,5 +1,6 @@
-let utilsfile = require("./utils");
-let reduce = utilsfile.Reduce;
+const utilsfile = require("./utils");
+
+const reduce = utilsfile.Reduce;
 function matchesWonPerTeamPerYear(Matches) {
   let result = {};
 
@@ -7,7 +8,7 @@ function matchesWonPerTeamPerYear(Matches) {
     Matches,
     (matchDetail, match) => {
       let season = match["season"];
-      var winner = match["winner"];
+      let winner = match["winner"];
       if (winner === "") {
         return matchDetail;
       }
