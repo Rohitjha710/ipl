@@ -1,7 +1,7 @@
-const csvFilePathmatches = './dataset/matches.csv';
+/* eslint-disable no-console */
+const csvFilePathmatches = './dataset/matches.csv'
 const csvFilePath1deliveries = './dataset/deliveries.csv';
 const csv = require('csvtojson');
-
 
 csv()
   .fromFile(csvFilePathmatches)
@@ -9,6 +9,7 @@ csv()
     csv()
       .fromFile(csvFilePath1deliveries)
       .then((Deliveries) => {
+
         // eslint-disable-next-line global-require
         const totalMatchesYearwise = require('./ipl/totalMatchesPerYear');
         const totalMatchesYearwiseArray = totalMatchesYearwise(Matches);
